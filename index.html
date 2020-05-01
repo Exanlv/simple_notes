@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Simple Notes</title>
+	<style>
+		* {
+			font-family: Verdana, Geneva, sans-serif;
+		}
+
+		html {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			padding: 0;
+			margin: 0;
+			color: white;
+		}
+
+		#file_browser_container {
+			background: #ddc18d;
+			width: 300px;
+			height: 100vh;
+			float: left;
+			user-select: none;
+			box-shadow: inset -12px 0 20px -4px rgba(0, 0, 0, 0.1);
+			overflow: auto;
+		}
+
+		#handle {
+			float: left;
+			width: 2px;
+			height: 100vh;
+			background-color: transparent;
+			z-index: 1;
+			cursor: col-resize;
+		}
+
+		#handle::after {
+			content: "";
+			width: 9px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			margin-left: -4px;
+			background-color: transparent;
+			z-index: 2;
+		}
+
+		#file_browser {
+			margin: 5px;
+		}
+
+		#content_container {
+			height: 100vh;
+
+			background: #fdf5e6;
+			color: black;
+
+			overflow: hidden;
+
+			/* padding: 5px; */
+		}
+
+		.title {
+			background: #a1885b;
+			padding: 10px 0 10px 10px;
+			margin: 6px -5px 6px 0;
+			border-radius: 2px 0 0 2px;
+		}
+
+		.item {
+			color: black;
+			background: #fdf5e6;
+			padding: 10px 0 10px 10px;
+			margin: 6px -5px 6px 0;
+			border-radius: 2px 0 0 2px;
+		}
+
+		#content {
+			background: transparent;
+			width: 100%;
+			width: calc(100% - 20px);
+			height: 100%;
+			height: calc(100% - 20px);
+			margin: 10px;
+			padding: 0;
+			border: 0;
+			overflow-y: scroll;
+			font-family: "Lucida Console", Monaco, monospace;
+		}
+
+		#content:focus {
+			outline: 0;
+		}
+
+		/* width */
+		::-webkit-scrollbar {
+		  width: 5px;
+		  height: 5px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		  background: transparent;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		  background: rgba(100,100,100,0.5);
+		  border-radius: 5px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+		  background: #555;
+		}
+	</style>
+	<script>
+		/**
+		 * Possibly the dirtiest hack I've ever made
+		 */
+
+		let exports = {};
+	</script>
+</head>
+
+<body>
+	<div id="file_browser_container">
+		<div id="file_browser">
+
+		</div>
+	</div>
+
+	<div id="handle">
+	</div>
+
+	<div id="content_container">
+		<pre contenteditable="true" id="content"></pre>
+	</div>
+</body>
+
+</html>
+
+<script src="./dist/renderer.js"></script>
+<script src="./dist/file_brower.js"></script>
+<script src="./dist/file_brower_resize.js"></script>
